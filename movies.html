@@ -1,19 +1,68 @@
 <!DOCTYPE html>
-<html>
-<head><title>Movies</title><link rel="stylesheet" href="style.css"></head>
-<body style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;">
-<h1>Before you continue</h1>
-<p>This is not our movie site.<br>This is <b>GN-Movies</b>.</p>
-<button onclick="go()" style="padding:14px 30px;font-size:18px;">I Understand</button>
-<script>
-function go(){
-fetch("https://raw.githubusercontent.com/GN-math-hub/School-Chaets/refs/heads/main/GN%20Movies%202026%20!!!?"+Date.now())
-.then(r=>r.text()).then(t=>{
-const w=window.open();
-w.document.write(t);
-w.document.close();
-});
-}
-</script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners</title>
+
+  <style>
+    /* White star cursor */
+    body {
+      cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>\
+<polygon points='16,1 20,12 31,12 22,19 25,30 16,23 7,30 10,19 1,12 12,12' fill='white'/>\
+</svg>") 16 16, auto;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      /* Black background with white stars */
+      background-color: black;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px white;
+    }
+
+    .button {
+      padding: 20px 45px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Partners</h1>
+
+  <button class="button" onclick="window.open('https://ixlmath67.vercel.app', '_blank')">
+    ClassroomSpot
+  </button>
+
 </body>
 </html>
