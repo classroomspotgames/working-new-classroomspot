@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Movies</title><link rel="stylesheet" href="style.css"></head>
+<body style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;">
+<h1>Before you continue</h1>
+<p>This is not our movie site.<br>This is <b>GN-Movies</b>.</p>
+<button onclick="go()" style="padding:14px 30px;font-size:18px;">I Understand</button>
+<script>
+function go(){
+fetch("https://raw.githubusercontent.com/GN-math-hub/School-Chaets/refs/heads/main/GN%20Movies%202026%20!!!?"+Date.now())
+.then(r=>r.text()).then(t=>{
+const w=window.open();
+w.document.write(t);
+w.document.close();
+});
+}
+</script>
+</body>
+</html>

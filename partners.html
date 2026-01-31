@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Partners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* EXTRA BUTTON EFFECTS */
+    .game-card{
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .game-card:hover{
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 0 30px rgba(255,255,255,0.25);
+      background:#1a1a1a;
+    }
+
+    .game-card:active{
+      transform: scale(0.97);
+      box-shadow: 0 0 12px rgba(255,255,255,0.15);
+    }
+
+    /* cursor feedback */
+    .game-card{
+      cursor:pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="padding:20px;">Partners</h1>
+
+<div class="games-grid">
+
+  <div class="game-card"
+       onclick="window.open('https://question.sharestaging.com/','_blank')">
+    <div class="game-name">Horizon</div>
+  </div>
+
+  <div class="game-card"
+       onclick="window.open('https://mathfunn.vercel.app','_blank')">
+    <div class="game-name">NikeHub</div>
+  </div>
+
+  <div class="game-card"
+       onclick="window.open('https://sites.google.com/view/blockmelmao','_blank')">
+    <div class="game-name">Unknown Hub</div>
+  </div>
+
+  <div class="game-card"
+       onclick="window.open('https://sites.google.com/view/squidly','_blank')">
+    <div class="game-name">Squidly</div>
+  </div>
+
+  <div class="game-card"
+       onclick="window.open('https://sites.google.com/view/jacksildeshow/home?authuser=2','_blank')">
+    <div class="game-name">Aiden Arcade</div>
+  </div>
+
+</div>
+
+</body>
+</html>

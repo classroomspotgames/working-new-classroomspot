@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClassroomSpot</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="logo">ClassroomSpot</span>
+  <a href="index.html">Games</a>
+  <a href="movies.html" class="movies-btn">
+    <span class="movies-label">MOVIES</span>
+  </a>
+  <a href="partners.html">Partners</a>
+  <a href="https://classlink.riversideacademy.site/reading/" target="_blank">Apps</a>
+  <a href="https://etherealwebeprox.vercel.app/" target="_blank">Unblocker</a>
+</nav>
+
+<div class="topbar">
+  <span id="total">Total games: loading…</span>
+  <input id="search" placeholder="Search games…">
+</div>
+
+<div id="games" class="games-grid"></div>
+
+<script>
+const gamesEl = document.getElementById("games");
+const search = document.getElementById("search");
+const totalEl = document.getElementById("total");
+
+const ZONES = "https://cdn.jsdelivr.net/gh/gn-math/assets@main/zones.json";
+const COVER = "https://cdn.jsdelivr.net/gh/gn-math/covers@main";
+const HTML = "https://cdn.jsdelivr.net/gh/gn-math/html@main";
+
+let games = [];
+
+fetch(ZONES + "?t=" + Date.now())
+.then(r=>r.json())
+.then(data => {
+  // remove suggestion / comment entries
+  games = data.filter(g =>
+    !g.name.toLowerCase().includes("suggest") &&
+    !g.name.toLowerCase().includes("comment")
+  );
+  totalEl.textContent = "Total games: " + games.length;
+  render(games);
+});
+
+function render(list){
+  gamesEl.innerHTML = "";
+  list.forEach(g => {
+    const card = document.createElement("div");
+    card.className = "game-card";
+    card.style.backgroundImage =
+      "url(" + g.cover.replace("{COVER_URL}", COVER).replace("{HTML_URL}", HTML) + ")";
+
+    const label = document.createElement("div");
+    label.className = "game-name";
+    label.textContent = g.name;
+
+    card.appendChild(label);
+    card.onclick = () => openGame(g);
+    gamesEl.appendChild(card);
+  });
+}
+
+search.oninput = () => {
+  const q = search.value.toLowerCase();
+  render(games.filter(g => g.name.toLowerCase().includes(q)));
+};
+
+function openGame(g){
+  const win = window.open("about:blank");
+  fetch(g.url.replace("{HTML_URL}", HTML))
+  .then(r=>r.text())
+  .then(t => {
+    win.document.open();
+    win.document.write(t);
+    win.document.close();
+  });
+}
+</script>
+
+</body>
+</html>
